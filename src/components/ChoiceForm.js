@@ -10,7 +10,7 @@ import useLegTimes from "../hooks/useLegTimeData";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
-    margin: theme.spacing(3)
+    margin: theme.spacing(1, 0)
   },
   formControlLabel: {
     margin: theme.spacing(3)
@@ -21,8 +21,8 @@ export default function ChoiceForm({ onFormChange }) {
   const classes = useStyles();
   const [value, setValue] = React.useState();
 
-  const legData1Payload = useLegTimes(1);
-  const legData2Payload = useLegTimes(2);
+  const legData1Payload = useLegTimes(2);
+  const legData2Payload = useLegTimes(1);
   const legData3Payload = useLegTimes(3);
   let legData1 = "Loading..."
   let legData2 = "Loading..."
@@ -53,7 +53,7 @@ export default function ChoiceForm({ onFormChange }) {
   return (
     <div>
       <FormControl component="fieldset" className={classes.formControl}>
-        <FormLabel component="legend">Route Options</FormLabel>
+        <FormLabel component="legend">Route Options & Recharging Stations</FormLabel>
         <RadioGroup
           aria-label="routes"
           name="routes"
