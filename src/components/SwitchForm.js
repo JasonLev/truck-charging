@@ -14,46 +14,37 @@ const useStyles = makeStyles(theme => ({
   },
   formControlLabel: {
     margin: theme.spacing(3)
-  },
+  }
 }));
 
-export default function ChoiceForm({ onFormChange }) {
+export default function SwitchForm({ onSwitchFormChange }) {
   const classes = useStyles();
   const [value, setValue] = React.useState();
 
   const legData1Payload = useLegTimes(1);
   const legData2Payload = useLegTimes(2);
-  const legData3Payload = useLegTimes(3);
-  let legData1 = "Loading..."
-  let legData2 = "Loading..."
-  let legData3 = "Loading..."
+  let legData1 = "Loading...";
+  let legData2 = "Loading...";
   if (legData1Payload) {
     const legData1Arr = legData1Payload.legs;
     const temp1 = [];
-    legData1Arr.forEach(item => temp1.push((item.time / 3600).toFixed(2)))
-    legData1 = temp1.join(" hr --> ") + " hr (Recommended)";
+    legData1Arr.forEach(item => temp1.push((item.time / 3600).toFixed(2)));
+    legData1 = temp1.join(" hr --> ") + " hr      Stay Current Route";
   }
   if (legData2Payload) {
     const legData2Arr = legData2Payload.legs;
     const temp2 = [];
-    legData2Arr.forEach(item => temp2.push((item.time / 3600).toFixed(2)))
-    legData2 = temp2.join(" hr --> ") + " hr";
+    legData2Arr.forEach(item => temp2.push((item.time / 3600).toFixed(2)));
+    legData2 = temp2.join(" hr --> ") + " hr (Recommended, Switch Route)";
   }
-  if (legData3Payload) {
-    const legData3Arr = legData3Payload.legs;
-    const temp3 = [];
-    legData3Arr.forEach(item => temp3.push((item.time / 3600).toFixed(2)))
-    legData3 = temp3.join(" hr --> ") + " hr";
-  }
-  
   const handleChange = event => {
     setValue(event.target.value);
-    onFormChange(event.target.value);
+    onSwitchFormChange(event.target.value);
   };
   return (
     <div>
       <FormControl component="fieldset" className={classes.formControl}>
-        <FormLabel component="legend">Route Options</FormLabel>
+        <FormLabel component="legend">Switch Route Options</FormLabel>
         <RadioGroup
           aria-label="routes"
           name="routes"
@@ -61,21 +52,15 @@ export default function ChoiceForm({ onFormChange }) {
           onChange={handleChange}
         >
           <FormControlLabel
-            value="1"
+            value="4"
             control={<Radio />}
             label={`Option A: ${legData1}`}
             className={classes.formControl}
           />
           <FormControlLabel
-            value="2"
+            value="5"
             control={<Radio />}
             label={`Option B: ${legData2}`}
-            className={classes.formControl}
-          />
-          <FormControlLabel
-            value="3"
-            control={<Radio />}
-            label={`Option C: ${legData3}`}
             className={classes.formControl}
           />
         </RadioGroup>

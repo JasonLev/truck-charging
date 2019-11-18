@@ -4,10 +4,17 @@ import Paper from "@material-ui/core/Paper";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+
 import { useLocation } from 'react-router-dom';
 
 import useMapImage from '../hooks/useMapImage'
 import ChoiceForm from "./ChoiceForm";
+import SwitchForm from "./SwitchForm";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,31 +23,32 @@ const useStyles = makeStyles(theme => ({
     height: "90vh",
     overflowY: "scroll"
   },
-  mapContainer: {
-    padding: theme.spacing(3, 2),
-    margin: theme.spacing(1),
-    // height: "55vh",
-    overflowY: "scroll"
-  },
   button: {
     margin: theme.spacing(1)
   }
 }));
 
 export default function Map() {
-  const [urlParam, setUrlParam] = useState(1);
+  const location = useLocation();
+  let startImg = 1
+  if (location.pathname === '/map_traffic') {
+    startImg = 4;
+  }
+  
+  const [urlParam, setUrlParam] = useState(startImg);
   const [isShowingForm, setShowingForm] = useState(true);
+  const [isShowingSwitchForm, setShowingSwitchForm] = useState(true);
   const [isShowingConfirm, setShowingConfirm] = useState(false);
   const [isConfirmed, setConfirmed] = useState(false);
+  const [open, setOpen] = React.useState(false);
+
   const classes = useStyles();
   const mapImg = useMapImage(urlParam);
   
   let mapContainer;
   if (mapImg) {
     mapContainer = (
-      <Container maxWidth="sm">
-        <img src={mapImg} alt="map" />
-      </Container>
+        <img src={mapImg} alt="map" className="mapImg" />
     );
   } else {
     mapContainer = "Loading map...";
@@ -53,21 +61,30 @@ export default function Map() {
   const handleConfirm = (selection) => {
     setShowingForm(false);
     setShowingConfirm(false);
+    setShowingSwitchForm(false);
     setConfirmed(true);
+    setOpen(true);
   }
+  const handleClose = () => {
+    setOpen(false);
+  };
   
-  const location = useLocation();
   const renderForm = () => (
     isShowingForm && <ChoiceForm onFormChange={handleFormChange} />        
   )
+  const renderSwitchForm = () => (
+    isShowingSwitchForm && <SwitchForm onSwitchFormChange={handleFormChange} />        
+  )
+  const optionLabels = ["A", "B", "C"];
+
   return (
     <Paper className={classes.root}>
       <Typography variant="h2" component="h2" gutterBottom>
         {isConfirmed ? "Confirmed Route" : "Your Map"}
       </Typography>
 
-      <div className={classes.mapContainer}>{mapContainer}</div>
-      {location.pathname === "/map" && renderForm()}
+      <div>{mapContainer}</div>
+      {location.pathname === "/map" ? renderForm() : renderSwitchForm()}
       {isShowingConfirm && (
         <Button
           variant="contained"
@@ -75,12 +92,40 @@ export default function Map() {
           className={classes.button}
           onClick={handleConfirm}
         >
-          Confirm{" "}
-          {location.pathname === "/map"
-            ? `Option ${urlParam}`
-            : `Switch to Other Option`}
+          <span className="confirmBtn">Confirm</span>
+          {location.pathname === "/map" ? (
+            `Option ${optionLabels[urlParam - 1]}`
+          ) : urlParam === "4" ? (
+            <span>Stay current route</span>
+          ) : (
+            <span>Switch to Other Route</span>
+          )}
         </Button>
       )}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Your route has been confirmed!"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <p>You can still use this app to make any route changes.</p>
+            <p>
+              Please be aware route changes may be suggested during heavy
+              traffic.
+            </p>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Got it!
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Paper>
   );
 }
