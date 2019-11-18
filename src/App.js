@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
-function App() {
+import Dashboard from './components/Dashboard'
+import Map from './components/Map'
+import Confirmation from './components/Confirmation'
+import MapTraffic from './components/MapTraffic'
+import Welcome from './components/Welcome'
+
+export default function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Welcome />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route exact path="/map">
+            <Map />
+          </Route>
+          <Route exact path="/confirm">
+            <Confirmation />
+          </Route>
+          <Route exact path="/map_traffic">
+            <MapTraffic />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-export default App;
