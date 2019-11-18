@@ -13,3 +13,10 @@
   text-decoration: none;
   color: #ffffff;
 }
+.confirmBtn {
+  margin-right: 1rem;
+}
+
+.mapImg {
+  width: 100%;
+}
