@@ -28,12 +28,12 @@ function createData(name, start_date, btn) {
 }
 
 const rows = [
-  createData("LAXPOR111819", "11.18.19", "START"),
-  createData("PORLAX112219", "11.22.19", ),
-  createData("SFOSEA112819", "11.28.19", ),
-  createData("SEASFO120219", "12.02.19", ),
-  createData("SFOLVS120619", "12.06.19", ),
-  createData("LVSLAX120819", "12.08.19", ),
+  createData("LAXPOR--111819", "11.18.19", "START"),
+  createData("PORLAX--112219", "11.22.19", ),
+  createData("SFOSEA--112819", "11.28.19", ),
+  createData("SEASFO--120219", "12.02.19", ),
+  createData("SFOLVS--120619", "12.06.19", ),
+  createData("LVSLAX--120819", "12.08.19", ),
 ];
 
 function desc(a, b, orderBy) {
@@ -209,7 +209,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(2)
   },
   table: {
-    minWidth: 750
+    minWidth: 250
   },
   tableWrapper: {
     overflowX: "auto"
