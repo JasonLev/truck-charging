@@ -3,7 +3,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
 } from "react-router-dom";
 
 import Dashboard from './components/Dashboard'
@@ -12,8 +12,8 @@ import Confirmation from './components/Confirmation'
 import MapTraffic from './components/MapTraffic'
 import Welcome from './components/Welcome'
 
+
 export default function App() {
-  
   return (
     <Router>
       <div>
@@ -30,8 +30,8 @@ export default function App() {
           <Route exact path="/confirm">
             <Confirmation />
           </Route>
-          <Route exact path="/map_traffic">
-            <MapTraffic />
+          <Route path="/map_traffic">
+            <Map />
           </Route>
         </Switch>
       </div>

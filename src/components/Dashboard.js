@@ -295,6 +295,9 @@ export default function Dashboard() {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
+        <Typography variant="h2" component="h2" gutterBottom>
+          Dashboard
+        </Typography>
         <EnhancedTableToolbar numSelected={selected.length} />
         <div className={classes.tableWrapper}>
           <Table
@@ -344,17 +347,19 @@ export default function Dashboard() {
                         {row.name}
                       </TableCell>
                       <TableCell align="right">{row.start_date}</TableCell>
-                      {row.btn === "START" &&
+                      {row.btn === "START" && (
                         <Link to="/map">
-                            <TableCell align="right">
-                                <Button
-                                variant="contained"
-                                color="primary"
-                                className={classes.button}
-                                >{row.btn}</Button>
-                            </TableCell>
-                        </Link> 
-                      }
+                          <TableCell align="right">
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              className={classes.button}
+                            >
+                              {row.btn}
+                            </Button>
+                          </TableCell>
+                        </Link>
+                      )}
                     </TableRow>
                   );
                 })}
