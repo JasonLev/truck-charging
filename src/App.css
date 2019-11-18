@@ -30,3 +30,15 @@
   display: flex;
   justify-content: space-around;
 }
+.optionHeading {
+  margin: 0;
+}
+.optionContainer p {
+  margin: 4px;
+}
+.heavyTraffic {
+  font-size: 1.25em;
+}
+.strike {
+  text-decoration: line-through;
+}

@@ -29,21 +29,45 @@ export default function ChoiceForm({ onFormChange }) {
   let legData3 = "Loading..."
   if (legData1Payload) {
     const legData1Arr = legData1Payload.legs;
-    const temp1 = [];
-    legData1Arr.forEach(item => temp1.push((item.time / 3600).toFixed(2)))
-    legData1 = temp1.join(" hr --> ") + " hr (Recommended)";
+    legData1 = (
+      <div className="optionContainer">
+        <h2 className="optionHeading">Option A: (Total Trip Time: 19.71 hrs)</h2>
+        <p>Los Angeles 5:00AM</p>
+        <p>San Jose 10:24AM ({(legData1Arr[0].time / 3600).toFixed(2)}hrs)</p>
+        <p>Medford 4:08PM ({(legData1Arr[1].time / 3600).toFixed(2)}hrs)</p>
+        <p>Portland 10:52PM ({(legData1Arr[2].time / 3600).toFixed(2)}hrs)</p>
+      </div>
+    );
   }
   if (legData2Payload) {
     const legData2Arr = legData2Payload.legs;
-    const temp2 = [];
-    legData2Arr.forEach(item => temp2.push((item.time / 3600).toFixed(2)))
-    legData2 = temp2.join(" hr --> ") + " hr";
+    legData2 = (
+      <div className="optionContainer">
+        <h2 className="optionHeading">Option B: (Total Trip Time: 21.80 hrs)</h2>
+        <p>Los Angeles 5:00AM</p>
+        <p>Bakersfield 9:14AM ({(legData2Arr[0].time / 3600).toFixed(2)}hrs)</p>
+        <p>
+          San Francisco 2:08PM ({(legData2Arr[1].time / 3600).toFixed(2)}hrs)
+        </p>
+        <p>Medford 5:04PM ({(legData2Arr[2].time / 3600).toFixed(2)}hrs)</p>
+        <p>Portland 11:21PM ({(legData2Arr[3].time / 3600).toFixed(2)}hrs)</p>
+      </div>
+    );
   }
   if (legData3Payload) {
     const legData3Arr = legData3Payload.legs;
-    const temp3 = [];
-    legData3Arr.forEach(item => temp3.push((item.time / 3600).toFixed(2)))
-    legData3 = temp3.join(" hr --> ") + " hr";
+    legData3 = (
+      <div className="optionContainer">
+        <h2 className="optionHeading">Option C: (Total Trip Time: 20.47 hrs)</h2>
+        <p>Los Angeles 5:00AM</p>
+        <p>San Jose 10:24AM ({(legData3Arr[0].time / 3600).toFixed(2)}hrs)</p>
+        <p>
+          Redding 4:42PM ({(legData3Arr[1].time / 3600).toFixed(2)}hrs)
+        </p>
+        <p>Eugene 10:44PM ({(legData3Arr[2].time / 3600).toFixed(2)}hrs)</p>
+        <p>Portland 1:56AM ({(legData3Arr[3].time / 3600).toFixed(2)}hrs)</p>
+      </div>
+    );
   }
   
   const handleChange = event => {
@@ -63,19 +87,19 @@ export default function ChoiceForm({ onFormChange }) {
           <FormControlLabel
             value="1"
             control={<Radio />}
-            label={`Option A: ${legData1}`}
+            label={legData1}
             className={classes.formControl}
           />
           <FormControlLabel
             value="2"
             control={<Radio />}
-            label={`Option B: ${legData2}`}
+            label={legData2}
             className={classes.formControl}
           />
           <FormControlLabel
             value="3"
             control={<Radio />}
-            label={`Option C: ${legData3}`}
+            label={legData3}
             className={classes.formControl}
           />
         </RadioGroup>

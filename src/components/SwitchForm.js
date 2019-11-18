@@ -27,16 +27,34 @@ export default function SwitchForm({ onSwitchFormChange }) {
   let legData2 = "Loading...";
   if (legData1Payload) {
     const legData1Arr = legData1Payload.legs;
-    const temp1 = [];
-    legData1Arr.forEach(item => temp1.push((item.time / 3600).toFixed(2)));
-    legData1 = temp1.join(" hr --> ") + " hr      Stay Current Route";
+    legData1 = (
+      <div className="optionContainer">
+        <h2 className="optionHeading heavyTraffic">
+          Current Route: (Total Trip Time: 19.71 hrs)
+        </h2>
+        <p className="strike">Los Angeles 5:00AM</p>
+        <p>San Jose 10:24AM ({(legData1Arr[0].time / 3600).toFixed(2)}hrs)</p>
+        <p>Medford 4:08PM ({(legData1Arr[1].time / 3600).toFixed(2)}hrs)</p>
+        <p>Portland 10:52PM ({(legData1Arr[2].time / 3600).toFixed(2)}hrs)</p>
+      </div>
+    );
   }
   if (legData2Payload) {
     const legData2Arr = legData2Payload.legs;
-    const temp2 = [];
-    legData2Arr.forEach(item => temp2.push((item.time / 3600).toFixed(2)));
-    legData2 = temp2.join(" hr --> ") + " hr (Recommended, Switch Route)";
+    legData2 = (
+      <div className="optionContainer">
+        <h2 className="optionHeading heavyTraffic">
+          Alternate Route: (Total Trip Time: 25.09 hrs)
+        </h2>
+        <p className="strike">Los Angeles 5:00AM</p>
+        <p>San Jose 10:24AM (5.40hrs</p>
+        <p>Carson City 4:42PM (5.48hrs)</p>
+        <p>Klamath Falls 11:35PM (8.35hrs)</p>
+        <p>Portland 4:56AM (5.86hrs)</p>
+      </div>
+    );
   }
+
   const handleChange = event => {
     setValue(event.target.value);
     onSwitchFormChange(event.target.value);
@@ -54,13 +72,13 @@ export default function SwitchForm({ onSwitchFormChange }) {
           <FormControlLabel
             value="4"
             control={<Radio />}
-            label={`Option A: ${legData1}`}
+            label={legData1}
             className={classes.formControl}
           />
           <FormControlLabel
             value="5"
             control={<Radio />}
-            label={`Option B: ${legData2}`}
+            label={legData2}
             className={classes.formControl}
           />
         </RadioGroup>

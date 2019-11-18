@@ -9,7 +9,6 @@ import {
 import Dashboard from './components/Dashboard'
 import Map from './components/Map'
 import Confirmation from './components/Confirmation'
-import MapTraffic from './components/MapTraffic'
 import Welcome from './components/Welcome'
 
 
