@@ -23,6 +23,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import Button from "@material-ui/core/Button";
 
+import navIcons from "../images/Material_Icons.png";
+
 function createData(name, start_date, btn) {
   return { name, start_date, btn };
 }
@@ -295,6 +297,9 @@ export default function Dashboard() {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
+        <Link to="/map_traffic">
+          <img src={navIcons} alt="icons" className="navIcons" />
+        </Link>
         <Typography variant="h2" component="h2" gutterBottom>
           Dashboard
         </Typography>

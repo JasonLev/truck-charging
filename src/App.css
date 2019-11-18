@@ -6,6 +6,12 @@
   background-size: cover;
   height: 100vh;
 }
+
+.navIcons {
+  /* width: 100%; */
+  margin: -3rem -2rem 0;
+  float: right;
+}
 /* .landing img {
   height: 100%;
 } */
@@ -14,9 +20,13 @@
   color: #ffffff;
 }
 .confirmBtn {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
-.mapImg {
+/* .mapImg {
   width: 100%;
+} */
+.mapMain {
+  display: flex;
+  justify-content: space-around;
 }
