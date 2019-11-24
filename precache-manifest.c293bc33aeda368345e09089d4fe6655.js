@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "94f6246d122b4328bad4d3882a8d1c46",
+    "revision": "00f4b046f3f78f81c6abf5fcab5b4b1b",
     "url": "/truck-charging/index.html"
   },
   {
-    "revision": "2081173b994af2bcd09b",
+    "revision": "13ca00fd9aadf9380ea1",
     "url": "/truck-charging/static/css/main.21174e2c.chunk.css"
   },
   {
-    "revision": "d21593f5f9730fc7a37e",
-    "url": "/truck-charging/static/js/2.4aa82e5c.chunk.js"
+    "revision": "67334f87d19a2d915d2a",
+    "url": "/truck-charging/static/js/2.1d0a9329.chunk.js"
   },
   {
-    "revision": "2081173b994af2bcd09b",
-    "url": "/truck-charging/static/js/main.e3e23b3b.chunk.js"
+    "revision": "13ca00fd9aadf9380ea1",
+    "url": "/truck-charging/static/js/main.6c507e94.chunk.js"
   },
   {
     "revision": "c47512e786048e9605cf",

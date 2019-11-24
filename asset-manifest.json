@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/truck-charging/static/css/main.21174e2c.chunk.css",
-    "main.js": "/truck-charging/static/js/main.e3e23b3b.chunk.js",
-    "main.js.map": "/truck-charging/static/js/main.e3e23b3b.chunk.js.map",
+    "main.js": "/truck-charging/static/js/main.6c507e94.chunk.js",
+    "main.js.map": "/truck-charging/static/js/main.6c507e94.chunk.js.map",
     "runtime-main.js": "/truck-charging/static/js/runtime-main.9ade98b0.js",
     "runtime-main.js.map": "/truck-charging/static/js/runtime-main.9ade98b0.js.map",
-    "static/js/2.4aa82e5c.chunk.js": "/truck-charging/static/js/2.4aa82e5c.chunk.js",
-    "static/js/2.4aa82e5c.chunk.js.map": "/truck-charging/static/js/2.4aa82e5c.chunk.js.map",
+    "static/js/2.1d0a9329.chunk.js": "/truck-charging/static/js/2.1d0a9329.chunk.js",
+    "static/js/2.1d0a9329.chunk.js.map": "/truck-charging/static/js/2.1d0a9329.chunk.js.map",
     "index.html": "/truck-charging/index.html",
-    "precache-manifest.71ec4c314e951f4dcfb68be5ee6b2d96.js": "/truck-charging/precache-manifest.71ec4c314e951f4dcfb68be5ee6b2d96.js",
+    "precache-manifest.c293bc33aeda368345e09089d4fe6655.js": "/truck-charging/precache-manifest.c293bc33aeda368345e09089d4fe6655.js",
     "service-worker.js": "/truck-charging/service-worker.js",
     "static/css/main.21174e2c.chunk.css.map": "/truck-charging/static/css/main.21174e2c.chunk.css.map",
     "static/media/App.css": "/truck-charging/static/media/ChargeLogic_Landing.e610ed6f.png",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.9ade98b0.js",
-    "static/js/2.4aa82e5c.chunk.js",
+    "static/js/2.1d0a9329.chunk.js",
     "static/css/main.21174e2c.chunk.css",
-    "static/js/main.e3e23b3b.chunk.js"
+    "static/js/main.6c507e94.chunk.js"
   ]
 }
