@@ -14,7 +14,7 @@ import Welcome from './components/Welcome'
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/truck-charging">
       <div>
         <Switch>
           <Route exact path="/">
