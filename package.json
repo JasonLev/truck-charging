@@ -2,7 +2,7 @@
   "name": "what_the_truck",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jasonlev.github.io/truck_charging",
+  "homepage": "https://jasonlev.github.io/truck-charging/",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
     "@material-ui/icons": "^4.5.1",
